@@ -9,7 +9,7 @@ namespace CapaDatos
 {
     public class DALConexion
     {
-        private SqlConnection Conexion = new SqlConnection("Server=localhost,1433;Database=BDSistemaFacturacion;User Id=sa;Password=TestPassword123*;TrustServerCertificate=True");
+        private SqlConnection Conexion = new SqlConnection("Server=DESKTOP-627OEER;Database=BDSistemaFacturacion;User Id=UserdbMS;Password=0123456789;TrustServerCertificate=True");
 
         public SqlConnection OpenConnection()
         {

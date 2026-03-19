@@ -56,7 +56,7 @@ namespace PantallasSistemaFacturacion
 
         private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AbrirPanel(new frmEmpleados());
+            AbrirPanel(new frmListaEmpleados());
         }
 
         private void rolesToolStripMenuItem_Click(object sender, EventArgs e)
