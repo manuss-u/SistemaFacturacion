@@ -308,11 +308,108 @@ GO
 -- STORED PROCEDURES - SEGURIDAD
 ------------------------------------------------
 
+CREATE OR ALTER PROCEDURE sp_ListarRoles
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT IdRol, NombreRol FROM Roles ORDER BY NombreRol;
+END;
+GO
+
 CREATE OR ALTER PROCEDURE sp_ListarEmpleados
 AS
 BEGIN
     SET NOCOUNT ON;
-    SELECT IdEmpleado, Nombre FROM Empleados ORDER BY Nombre;
+    SELECT e.IdEmpleado, e.Nombre, e.Documento, e.Telefono, e.Email,
+           r.NombreRol AS Rol, e.FechaIngreso
+    FROM Empleados e
+    LEFT JOIN Roles r ON e.IdRol = r.IdRol
+    ORDER BY e.Nombre;
+END;
+GO
+
+CREATE OR ALTER PROCEDURE sp_BuscarEmpleados
+    @Criterio NVARCHAR(100)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT e.IdEmpleado, e.Nombre, e.Documento, e.Telefono, e.Email,
+           r.NombreRol AS Rol, e.FechaIngreso
+    FROM Empleados e
+    LEFT JOIN Roles r ON e.IdRol = r.IdRol
+    WHERE e.Nombre     LIKE '%' + @Criterio + '%'
+       OR e.Documento  LIKE '%' + @Criterio + '%'
+       OR e.Email      LIKE '%' + @Criterio + '%'
+    ORDER BY e.Nombre;
+END;
+GO
+
+CREATE OR ALTER PROCEDURE sp_ObtenerEmpleadoPorId
+    @IdEmpleado INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT IdEmpleado, Nombre, Documento, Direccion, Telefono, Email,
+           IdRol, FechaIngreso, FechaRetiro, Detalles
+    FROM Empleados
+    WHERE IdEmpleado = @IdEmpleado;
+END;
+GO
+
+CREATE OR ALTER PROCEDURE sp_InsertarEmpleado
+    @Nombre       NVARCHAR(150),
+    @Documento    NVARCHAR(20),
+    @Direccion    NVARCHAR(200),
+    @Telefono     NVARCHAR(20),
+    @Email        NVARCHAR(100),
+    @IdRol        INT,
+    @FechaIngreso DATE,
+    @FechaRetiro  DATE = NULL,
+    @Detalles     NVARCHAR(500) = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+    INSERT INTO Empleados (Nombre, Documento, Direccion, Telefono, Email,
+                           IdRol, FechaIngreso, FechaRetiro, Detalles)
+    VALUES (@Nombre, @Documento, @Direccion, @Telefono, @Email,
+            @IdRol, @FechaIngreso, @FechaRetiro, @Detalles);
+END;
+GO
+
+CREATE OR ALTER PROCEDURE sp_ActualizarEmpleado
+    @IdEmpleado   INT,
+    @Nombre       NVARCHAR(150),
+    @Documento    NVARCHAR(20),
+    @Direccion    NVARCHAR(200),
+    @Telefono     NVARCHAR(20),
+    @Email        NVARCHAR(100),
+    @IdRol        INT,
+    @FechaIngreso DATE,
+    @FechaRetiro  DATE = NULL,
+    @Detalles     NVARCHAR(500) = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+    UPDATE Empleados
+    SET Nombre       = @Nombre,
+        Documento    = @Documento,
+        Direccion    = @Direccion,
+        Telefono     = @Telefono,
+        Email        = @Email,
+        IdRol        = @IdRol,
+        FechaIngreso = @FechaIngreso,
+        FechaRetiro  = @FechaRetiro,
+        Detalles     = @Detalles
+    WHERE IdEmpleado = @IdEmpleado;
+END;
+GO
+
+CREATE OR ALTER PROCEDURE sp_EliminarEmpleado
+    @IdEmpleado INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    DELETE FROM Empleados WHERE IdEmpleado = @IdEmpleado;
 END;
 GO
 

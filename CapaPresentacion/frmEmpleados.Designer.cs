@@ -38,7 +38,7 @@
             dtpFechaIngreso = new DateTimePicker();
             label8 = new Label();
             label7 = new Label();
-            txtRol = new TextBox();
+            cmbRol = new ComboBox();
             label1 = new Label();
             label3 = new Label();
             label4 = new Label();
@@ -103,7 +103,7 @@
             pnlDatosCliente.Controls.Add(dtpFechaIngreso);
             pnlDatosCliente.Controls.Add(label8);
             pnlDatosCliente.Controls.Add(label7);
-            pnlDatosCliente.Controls.Add(txtRol);
+            pnlDatosCliente.Controls.Add(cmbRol);
             pnlDatosCliente.Controls.Add(label1);
             pnlDatosCliente.Controls.Add(label3);
             pnlDatosCliente.Controls.Add(label4);
@@ -133,6 +133,8 @@
             dtpFechaRetiro.Format = DateTimePickerFormat.Short;
             dtpFechaRetiro.Location = new Point(579, 118);
             dtpFechaRetiro.Name = "dtpFechaRetiro";
+            dtpFechaRetiro.ShowCheckBox = true;
+            dtpFechaRetiro.Checked = false;
             dtpFechaRetiro.Size = new Size(163, 23);
             dtpFechaRetiro.TabIndex = 18;
             dtpFechaRetiro.Value = new DateTime(2026, 2, 25, 21, 45, 33, 0);
@@ -187,14 +189,14 @@
             label7.TabIndex = 13;
             label7.Text = "F. Ingreso";
             // 
-            // txtRol
-            // 
-            txtRol.Font = new Font("Segoe UI", 12F);
-            txtRol.Location = new Point(561, 38);
-            txtRol.Name = "txtRol";
-            txtRol.Size = new Size(235, 29);
-            txtRol.TabIndex = 12;
-            txtRol.TextChanged += textBox1_TextChanged;
+            // cmbRol
+            //
+            cmbRol.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbRol.Font = new Font("Segoe UI", 12F);
+            cmbRol.Location = new Point(561, 38);
+            cmbRol.Name = "cmbRol";
+            cmbRol.Size = new Size(235, 29);
+            cmbRol.TabIndex = 12;
             // 
             // label1
             // 
@@ -312,6 +314,7 @@
             txtGuardar.TabIndex = 21;
             txtGuardar.Text = "Actualizar";
             txtGuardar.UseVisualStyleBackColor = false;
+            txtGuardar.Click += txtGuardar_Click;
             // 
             // lblTitulo
             // 
@@ -407,7 +410,7 @@
         private DateTimePicker dtpFechaIngreso;
         private Label label8;
         private Label label7;
-        private TextBox txtRol;
+        private ComboBox cmbRol;
         private Label label1;
         private Label label3;
         private Label label4;

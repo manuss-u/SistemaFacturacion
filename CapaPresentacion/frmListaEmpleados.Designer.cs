@@ -57,6 +57,7 @@
             btnEliminar.TabIndex = 27;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnSalir
             // 
@@ -151,6 +152,7 @@
             btnBuscar.TabIndex = 23;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = false;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // label2
             // 
@@ -195,6 +197,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmListaEmpleados";
             Text = "frmListaEmpleados";
+            this.Load += frmListaEmpleados_Load;
             pnlFormulario.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).EndInit();
             panel1.ResumeLayout(false);

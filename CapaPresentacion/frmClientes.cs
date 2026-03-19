@@ -18,9 +18,9 @@ namespace PantallasSistemaFacturacion
         public frmClientes()
         {
             InitializeComponent();
-            this.Load          += frmClientes_Load;
-            btnBuscar.Click    += btnBuscar_Click;
-            btnEliminar.Click  += btnEliminar_Click;
+            this.Load += frmClientes_Load;
+            btnBuscar.Click += btnBuscar_Click;
+            btnEliminar.Click += btnEliminar_Click;
             btnActualizar.Click += btnActualizar_Click;
         }
 
@@ -124,5 +124,10 @@ namespace PantallasSistemaFacturacion
 
         private void label1_Click(object sender, EventArgs e) { }
         private void button1_Click(object sender, EventArgs e) { }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

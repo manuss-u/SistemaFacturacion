@@ -143,6 +143,7 @@
             txtGuardar.TabIndex = 23;
             txtGuardar.Text = "Actualizar";
             txtGuardar.UseVisualStyleBackColor = false;
+            txtGuardar.Click += txtGuardar_Click;
             // 
             // btnSalir
             // 
@@ -169,6 +170,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmSeguridad";
             Text = "frmSeguridad";
+            Load += frmSeguridad_Load_1;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

@@ -33,9 +33,9 @@ namespace PantallasSistemaFacturacion
             try
             {
                 DataTable dt = dalSeguridad.ListarUsuariosSistema();
-                cmbEmpleado.DataSource    = dt;
+                cmbEmpleado.DataSource = dt;
                 cmbEmpleado.DisplayMember = "Usuario";
-                cmbEmpleado.ValueMember   = "IdUsuario";
+                cmbEmpleado.ValueMember = "IdUsuario";
                 cmbEmpleado.SelectedIndex = -1;
             }
             catch (Exception ex)
@@ -51,7 +51,7 @@ namespace PantallasSistemaFacturacion
 
             DataRowView row = (DataRowView)cmbEmpleado.SelectedItem!;
             txtUsuario.Text = row["Usuario"].ToString();
-            txtClave.Text   = string.Empty;
+            txtClave.Text = string.Empty;
 
             Validaciones.LimpiarError(txtUsuario);
             Validaciones.LimpiarError(txtClave);
@@ -94,6 +94,16 @@ namespace PantallasSistemaFacturacion
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtGuardar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmSeguridad_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
