@@ -89,7 +89,7 @@
             btnBuscar.TabIndex = 22;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = false;
-            btnBuscar.Click += btnBuscar_Click_1;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // btnActualizar
             // 
@@ -104,6 +104,7 @@
             btnActualizar.TabIndex = 24;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = false;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // btnNuevo
             // 
@@ -174,6 +175,7 @@
             btnEliminar.TabIndex = 26;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnEditar
             // 
@@ -205,6 +207,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             panel2.ResumeLayout(false);
             ResumeLayout(false);
+            this.Load += frmClientes_Load;
         }
 
         #endregion

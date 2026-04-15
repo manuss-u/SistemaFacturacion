@@ -29,11 +29,18 @@
         private void InitializeComponent()
         {
             btnSalir = new Button();
-            txtGuardar = new Button();
+            btnGuardar = new Button();
             pnlFormulario = new Panel();
             gbFactura = new GroupBox();
             dgvDetalleFactura = new DataGridView();
             pnlDatosCliente = new Panel();
+            txtEmpleado = new TextBox();
+            panel2 = new Panel();
+            panel4 = new Panel();
+            panel5 = new Panel();
+            panel6 = new Panel();
+            panel1 = new Panel();
+            panel3 = new Panel();
             dtpFechaRegistro = new DateTimePicker();
             cmbEstadoFactura = new ComboBox();
             label8 = new Label();
@@ -50,13 +57,6 @@
             txtFactura = new TextBox();
             txtCliente = new TextBox();
             lblTitulo = new Label();
-            panel3 = new Panel();
-            panel1 = new Panel();
-            panel2 = new Panel();
-            panel4 = new Panel();
-            panel5 = new Panel();
-            panel6 = new Panel();
-            txtEmpleado = new TextBox();
             pnlFormulario.SuspendLayout();
             gbFactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDetalleFactura).BeginInit();
@@ -77,19 +77,20 @@
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
-            // txtGuardar
+            // btnGuardar
             // 
-            txtGuardar.BackColor = Color.SteelBlue;
-            txtGuardar.BackgroundImageLayout = ImageLayout.None;
-            txtGuardar.FlatStyle = FlatStyle.Flat;
-            txtGuardar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            txtGuardar.ForeColor = SystemColors.ButtonFace;
-            txtGuardar.Location = new Point(747, 152);
-            txtGuardar.Name = "txtGuardar";
-            txtGuardar.Size = new Size(123, 39);
-            txtGuardar.TabIndex = 21;
-            txtGuardar.Text = "Actualizar";
-            txtGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.BackColor = Color.SteelBlue;
+            btnGuardar.BackgroundImageLayout = ImageLayout.None;
+            btnGuardar.FlatStyle = FlatStyle.Flat;
+            btnGuardar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnGuardar.ForeColor = SystemColors.ButtonFace;
+            btnGuardar.Location = new Point(747, 152);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(123, 39);
+            btnGuardar.TabIndex = 21;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // pnlFormulario
             // 
@@ -97,7 +98,7 @@
             pnlFormulario.Controls.Add(btnSalir);
             pnlFormulario.Controls.Add(gbFactura);
             pnlFormulario.Controls.Add(pnlDatosCliente);
-            pnlFormulario.Controls.Add(txtGuardar);
+            pnlFormulario.Controls.Add(btnGuardar);
             pnlFormulario.Controls.Add(lblTitulo);
             pnlFormulario.Location = new Point(70, 35);
             pnlFormulario.Name = "pnlFormulario";
@@ -154,6 +155,75 @@
             pnlDatosCliente.Size = new Size(684, 240);
             pnlDatosCliente.TabIndex = 17;
             pnlDatosCliente.Paint += panel1_Paint;
+            // 
+            // txtEmpleado
+            // 
+            txtEmpleado.BorderStyle = BorderStyle.None;
+            txtEmpleado.Font = new Font("Segoe UI", 12F);
+            txtEmpleado.Location = new Point(106, 97);
+            txtEmpleado.Name = "txtEmpleado";
+            txtEmpleado.Size = new Size(246, 22);
+            txtEmpleado.TabIndex = 28;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.Gray;
+            panel2.BackgroundImageLayout = ImageLayout.None;
+            panel2.ForeColor = Color.DimGray;
+            panel2.Location = new Point(17, 192);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(350, 2);
+            panel2.TabIndex = 27;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.Gray;
+            panel4.BackgroundImageLayout = ImageLayout.None;
+            panel4.ForeColor = Color.DimGray;
+            panel4.Location = new Point(17, 159);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(350, 2);
+            panel4.TabIndex = 27;
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.Gray;
+            panel5.BackgroundImageLayout = ImageLayout.None;
+            panel5.ForeColor = Color.DimGray;
+            panel5.Location = new Point(17, 121);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(350, 2);
+            panel5.TabIndex = 27;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.Gray;
+            panel6.BackgroundImageLayout = ImageLayout.None;
+            panel6.ForeColor = Color.DimGray;
+            panel6.Location = new Point(17, 86);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(350, 2);
+            panel6.TabIndex = 27;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Gray;
+            panel1.BackgroundImageLayout = ImageLayout.None;
+            panel1.ForeColor = Color.DimGray;
+            panel1.Location = new Point(17, 227);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(350, 2);
+            panel1.TabIndex = 27;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.Gray;
+            panel3.BackgroundImageLayout = ImageLayout.None;
+            panel3.ForeColor = Color.DimGray;
+            panel3.Location = new Point(17, 43);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(350, 2);
+            panel3.TabIndex = 26;
             // 
             // dtpFechaRegistro
             // 
@@ -321,75 +391,6 @@
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
             lblTitulo.Click += label1_Click;
             // 
-            // panel3
-            // 
-            panel3.BackColor = Color.Gray;
-            panel3.BackgroundImageLayout = ImageLayout.None;
-            panel3.ForeColor = Color.DimGray;
-            panel3.Location = new Point(17, 43);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(350, 2);
-            panel3.TabIndex = 26;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.Gray;
-            panel1.BackgroundImageLayout = ImageLayout.None;
-            panel1.ForeColor = Color.DimGray;
-            panel1.Location = new Point(17, 227);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(350, 2);
-            panel1.TabIndex = 27;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.Gray;
-            panel2.BackgroundImageLayout = ImageLayout.None;
-            panel2.ForeColor = Color.DimGray;
-            panel2.Location = new Point(17, 192);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(350, 2);
-            panel2.TabIndex = 27;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.Gray;
-            panel4.BackgroundImageLayout = ImageLayout.None;
-            panel4.ForeColor = Color.DimGray;
-            panel4.Location = new Point(17, 159);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(350, 2);
-            panel4.TabIndex = 27;
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.Gray;
-            panel5.BackgroundImageLayout = ImageLayout.None;
-            panel5.ForeColor = Color.DimGray;
-            panel5.Location = new Point(17, 121);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(350, 2);
-            panel5.TabIndex = 27;
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.Gray;
-            panel6.BackgroundImageLayout = ImageLayout.None;
-            panel6.ForeColor = Color.DimGray;
-            panel6.Location = new Point(17, 86);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(350, 2);
-            panel6.TabIndex = 27;
-            // 
-            // txtEmpleado
-            // 
-            txtEmpleado.BorderStyle = BorderStyle.None;
-            txtEmpleado.Font = new Font("Segoe UI", 12F);
-            txtEmpleado.Location = new Point(106, 97);
-            txtEmpleado.Name = "txtEmpleado";
-            txtEmpleado.Size = new Size(246, 22);
-            txtEmpleado.TabIndex = 28;
-            // 
             // frmFacturas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -410,7 +411,7 @@
         #endregion
 
         private Button btnSalir;
-        private Button txtGuardar;
+        private Button btnGuardar;
         private Panel pnlFormulario;
         private TextBox txtIva;
         private TextBox txtDescuento;
