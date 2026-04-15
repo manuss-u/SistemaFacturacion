@@ -78,6 +78,34 @@ CREATE TABLE Productos (
 );
 GO
 
+CREATE TABLE Facturas (
+    IdFactura       INT IDENTITY(1,1) PRIMARY KEY,
+    NumeroFactura   NVARCHAR(20) NOT NULL,
+    IdCliente       INT NOT NULL,
+    IdEmpleado      INT NOT NULL,
+    FechaRegistro   DATE NOT NULL,
+    EstadoFactura   NVARCHAR(20) NOT NULL,
+    Subtotal        DECIMAL(10,2) NOT NULL,
+    Descuento       DECIMAL(10,2) NOT NULL,
+    Iva             DECIMAL(10,2) NOT NULL,
+    TotalFactura    DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (IdCliente) REFERENCES Clientes(IdCliente),
+    FOREIGN KEY (IdEmpleado) REFERENCES Empleados(IdEmpleado)
+);
+GO
+
+CREATE TABLE DetalleFacturas (
+    IdDetalleFactura INT IDENTITY(1,1) PRIMARY KEY,
+    IdFactura        INT NOT NULL,
+    IdProducto       INT NOT NULL,
+    Cantidad         INT NOT NULL,
+    PrecioUnitario   DECIMAL(10,2) NOT NULL,
+    Subtotal         DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (IdFactura) REFERENCES Facturas(IdFactura),
+    FOREIGN KEY (IdProducto) REFERENCES Productos(IdProducto)
+);
+GO
+
 ------------------------------------------------
 -- DATOS INICIALES
 ------------------------------------------------
